@@ -93,7 +93,7 @@ store3.add_item("Вода", 50)
 store1.show_items()
 store1.update_price("Молоко", 90)
 print(f"Новая цена молока: {store1.get_price('Молоко')} руб.")
-store1.show_items()
+
 
 # Пример удаления товара
 store2.show_items()
