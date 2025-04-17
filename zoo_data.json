@@ -1,0 +1,33 @@
+{
+    "zoo_name": "\u0414\u0438\u043a\u0438\u0439 \u0440\u0430\u0439",
+    "animals": [
+        {
+            "type": "Bird",
+            "name": "\u041a\u0435\u0448\u0430",
+            "age": 2,
+            "wingspan": 15
+        },
+        {
+            "type": "Mammal",
+            "name": "\u0411\u0430\u0440\u0441\u0438\u043a",
+            "age": 4,
+            "fur_color": "\u0440\u044b\u0436\u0438\u0439"
+        },
+        {
+            "type": "Reptile",
+            "name": "\u0413\u0435\u043d\u0430",
+            "age": 5,
+            "scale_type": "\u043a\u0440\u0443\u043f\u043d\u0430\u044f \u0447\u0435\u0448\u0443\u044f"
+        }
+    ],
+    "staff": [
+        {
+            "type": "ZooKeeper",
+            "name": "\u0418\u0432\u0430\u043d"
+        },
+        {
+            "type": "Veterinarian",
+            "name": "\u041c\u0430\u0440\u0438\u044f"
+        }
+    ]
+}
