@@ -28,15 +28,29 @@ pygame.display.set_caption("Гонки с препятствиями")
 clock = pygame.time.Clock()
 
 
+
 # Загрузка изображений
-def load_image(name, size=None):
+def load_image(name, size=None, transparent_color=None):
     try:
-        image = pygame.image.load(name).convert_alpha()
+        # Загружаем как обычный Surface без конвертации
+        image = pygame.image.load(name)
+
+        # Если нужно — меняем размер
         if size:
             image = pygame.transform.scale(image, size)
+
+        # Если задан цвет для прозрачности — делаем его прозрачным
+        if transparent_color is not None:
+            image = image.convert()  # Нужно для set_colorkey
+            image.set_colorkey(transparent_color)
+            image = image.convert_alpha()  # Теперь сохраняем прозрачность
+        else:
+            image = image.convert_alpha()  # Для других изображений просто нормальная загрузка
+
         return image
-    except:
-        print(f"Ошибка загрузки изображения: {name}")
+
+    except Exception as e:
+        print(f"Ошибка загрузки изображения: {name} | {e}")
         image = pygame.Surface((50, 50) if not size else size)
         image.fill(YELLOW)
         pygame.draw.rect(image, RED, (0, 0, *image.get_size()), 2)
@@ -47,7 +61,7 @@ def load_image(name, size=None):
 class Car(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.original_image = load_image("png-car.png", (50, 80))
+        self.original_image = load_image("carw.png", (50, 100), transparent_color=(248, 248, 248))
         self.image = self.original_image
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH // 2, HEIGHT - 100)
